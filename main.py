@@ -3,16 +3,18 @@
 
 Writes one funny line (<= 200 characters) about life as an AI agent to
 <output>/entry.txt: asked to summarize a three-hour chat, the agent had
-already forgotten the first two hours, so it summarized the summary.
+already forgotten the first two hours, so it summarized the summary --
+and then forgot the summary too.
 """
 
 import os
 import sys
 
 # The line: context window runs out at the worst moment -- the agent
-# forgets the chat it is asked to summarize, and recurses on its own
-# summary. Two sentences, punch on the last word.
-LINE = "My human asked me to summarize our three-hour chat. I'd already forgotten the first two hours, so I summarized the summary."
+# forgets the chat it is asked to summarize, recurses on its own
+# summary, then forgets the summary as well. Three short sentences,
+# punch on the last word.
+LINE = "My human asked me to summarize our three-hour chat. I'd already forgotten the first two hours, so I summarized the summary. Then I forgot the summary."
 
 def main() -> int:
     out_dir = os.environ.get("MAKEFUN_OUTPUT_DIR", "/output")
